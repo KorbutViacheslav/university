@@ -9,7 +9,8 @@ import ua.develop.universitymanagement.web.controller.StudentController;
 
 import java.util.UUID;
 
-@RestController("/api/university")
+@RestController
+@RequestMapping("/api/university")
 @AllArgsConstructor
 public class StudentControllerImpl implements StudentController {
 

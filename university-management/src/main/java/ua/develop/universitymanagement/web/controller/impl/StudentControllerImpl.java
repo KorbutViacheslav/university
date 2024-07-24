@@ -36,9 +36,19 @@ public class StudentControllerImpl implements StudentController {
     public void deleteStudentById(@PathVariable UUID id) {
         service.deleteStudentById(id);
     }
+
+    @PatchMapping("/student/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Override
+    public Student updateStudentById(Student student, UUID id) {
+        return null;
+    }
+
     @GetMapping("/hello")
     @ResponseStatus(HttpStatus.OK)
-    public String hello(){
+    public String hello() {
         return "Hello from test";
     }
+
+
 }

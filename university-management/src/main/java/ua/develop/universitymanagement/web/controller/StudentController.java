@@ -11,4 +11,5 @@ public interface StudentController {
     Student getStudentById(UUID id);
 
     void deleteStudentById(UUID id);
+    Student updateStudentById(Student student, UUID id);
 }

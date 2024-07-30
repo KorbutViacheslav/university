@@ -3,6 +3,8 @@ package ua.develop.universitymanagement.web.controller.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ua.develop.universitymanagement.dto.student.StudentRead;
+import ua.develop.universitymanagement.dto.student.StudentSave;
 import ua.develop.universitymanagement.model.Student;
 import ua.develop.universitymanagement.service.StudentService;
 import ua.develop.universitymanagement.web.controller.StudentController;
@@ -19,14 +21,14 @@ public class StudentControllerImpl implements StudentController {
     @PostMapping("/student")
     @ResponseStatus(HttpStatus.CREATED)
     @Override
-    public Student createStudent(@RequestBody Student student) {
-        return service.saveStudent(student);
+    public Student createStudent(@RequestBody StudentSave studentSave) {
+        return service.saveStudent(studentSave);
     }
 
     @GetMapping("/student/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public Student getStudentById(@PathVariable UUID id) {
+    public StudentRead getStudentById(@PathVariable UUID id) {
         return service.getStudentById(id);
     }
 
@@ -40,7 +42,7 @@ public class StudentControllerImpl implements StudentController {
     @PatchMapping("/student/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public Student updateStudentById(Student student, UUID id) {
+    public Student updateStudentById(StudentSave student, UUID id) {
         return null;
     }
 

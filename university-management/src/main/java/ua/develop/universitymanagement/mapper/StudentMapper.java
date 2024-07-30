@@ -10,7 +10,7 @@ import ua.develop.universitymanagement.model.Student;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-interface StudentMapper {
+public interface StudentMapper {
 
     StudentMapper INSTANCE = Mappers.getMapper(StudentMapper.class);
 

@@ -23,14 +23,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student saveStudent(StudentSave studentSave) {
-        Student student = studentMapper.toStudent(studentSave);
-        if (studentRepo.getStudentByFirstNameAndLastNameAndPhoneNumber(
-                        studentSave.firstName(),
-                        studentSave.lastName(),
-                        studentSave.phoneNumber())
-                .equals(student)) {
-            throw new StudentAlreadyExistsException("");
-        }
+
+        Student student = geStudent(studentSave);
+
         return studentRepo.save(student);
     }
 
@@ -58,5 +53,16 @@ public class StudentServiceImpl implements StudentService {
     private Student getStudent(UUID id) {
         return studentRepo.findById(id)
                 .orElseThrow(NoSuchElementException::new);
+    }
+
+    private Student geStudent(StudentSave studentSave) {
+        Optional<Student> student = studentRepo.getStudentByFirstNameAndLastNameAndPhoneNumber(
+                studentSave.firstName(),
+                studentSave.lastName(),
+                studentSave.phoneNumber());
+        if (student.isPresent()) {
+            throw new StudentAlreadyExistsException(student.get().getStudentId().toString());
+        }
+        return studentMapper.toStudent(studentSave);
     }
 }

@@ -86,7 +86,7 @@ public class StudentServiceImpl implements StudentService {
         newStudent.setStudentId(id);
         newStudent.setDateOfBirth(studentSave.dateOfBirth());
         newStudent.setDateOfAdmission(studentSave.dateOfAdmission());
-
+        //delete old student
         deleteStudentById(dbStudent.getStudentId());
         return newStudent;
     }

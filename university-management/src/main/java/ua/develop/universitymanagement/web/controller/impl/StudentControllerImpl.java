@@ -9,6 +9,7 @@ import ua.develop.universitymanagement.model.Student;
 import ua.develop.universitymanagement.service.StudentService;
 import ua.develop.universitymanagement.web.controller.StudentController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -42,8 +43,15 @@ public class StudentControllerImpl implements StudentController {
     @PatchMapping("/student/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public Student updateStudentById(StudentSave student, UUID id) {
-        return null;
+    public Student updateStudentById(@RequestBody StudentSave student, @PathVariable UUID id) {
+        return service.updateStudentById(student, id);
+    }
+
+    @GetMapping("/students")
+    @ResponseStatus(HttpStatus.OK)
+    @Override
+    public List<StudentRead> getAllStudents() {
+        return service.getAllStudents();
     }
 
     @GetMapping("/hello")

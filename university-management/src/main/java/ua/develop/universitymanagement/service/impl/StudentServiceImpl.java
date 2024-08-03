@@ -11,9 +11,11 @@ import ua.develop.universitymanagement.model.Student;
 import ua.develop.universitymanagement.repository.StudentRepo;
 import ua.develop.universitymanagement.service.StudentService;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -34,12 +36,12 @@ public class StudentServiceImpl implements StudentService {
         return studentRepo
                 .findById(id)
                 .map(studentMapper::toStudentRead)
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new StudentNotFoundException(id.toString()));
     }
 
     @Override
     public Student updateStudentById(StudentSave student, UUID id) {
-        return null;
+        return studentRepo.save(overrideStudent(student, id));
     }
 
     @Override
@@ -50,9 +52,17 @@ public class StudentServiceImpl implements StudentService {
         studentRepo.deleteById(id);
     }
 
+    @Override
+    public List<StudentRead> getAllStudents() {
+        return studentRepo.findAll()
+                .stream()
+                .map(studentMapper::toStudentRead)
+                .collect(Collectors.toList());
+    }
+
     private Student getStudent(UUID id) {
         return studentRepo.findById(id)
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new StudentNotFoundException(id.toString()));
     }
 
     private Student geStudent(StudentSave studentSave) {
@@ -64,5 +74,20 @@ public class StudentServiceImpl implements StudentService {
             throw new StudentAlreadyExistsException(student.get().getStudentId().toString());
         }
         return studentMapper.toStudent(studentSave);
+    }
+
+    private Student overrideStudent(StudentSave studentSave, UUID id) {
+        Student dbStudent = getStudent(id);
+        Student newStudent = new Student();
+        newStudent.setFirstName(studentSave.firstName());
+        newStudent.setLastName(studentSave.lastName());
+        newStudent.setPhoneNumber(studentSave.phoneNumber());
+        newStudent.setEmail(studentSave.email());
+        newStudent.setStudentId(id);
+        newStudent.setDateOfBirth(studentSave.dateOfBirth());
+        newStudent.setDateOfAdmission(studentSave.dateOfAdmission());
+
+        deleteStudentById(dbStudent.getStudentId());
+        return newStudent;
     }
 }

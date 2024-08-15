@@ -1,5 +1,6 @@
 package ua.develop.universitymanagement.web.controller.impl;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class StudentControllerImpl implements StudentController {
     @PostMapping("/student")
     @ResponseStatus(HttpStatus.CREATED)
     @Override
-    public Student createStudent(@RequestBody StudentSave studentSave) {
+    public Student createStudent(@Valid @RequestBody StudentSave studentSave) {
         return service.saveStudent(studentSave);
     }
 

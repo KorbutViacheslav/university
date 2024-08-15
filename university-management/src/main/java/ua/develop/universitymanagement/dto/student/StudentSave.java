@@ -11,7 +11,7 @@ public record StudentSave(
         @Schema(description = "Student name", example = "Michael")
         String firstName,
 
-        @Pattern(regexp = "^[A-Z][a-zA-Z.]+$", message = "Invalid student last name format")
+        @Pattern(regexp = "^[A-Z][a-zA-Z]*(-[A-Z][a-zA-Z]*)?$", message = "Invalid student last name format")
         @Size(min = 2, max = 32, message = "Name must be between 2 and 32 characters long")
         @Schema(description = "Student last name", example = "Jackson")
         String lastName,

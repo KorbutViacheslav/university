@@ -18,4 +18,6 @@ public interface StudentController {
     Student updateStudentById(StudentSave student, UUID id);
 
     List<StudentRead> getAllStudents();
+    //For testing online
+    List<Student> getAll();
 }

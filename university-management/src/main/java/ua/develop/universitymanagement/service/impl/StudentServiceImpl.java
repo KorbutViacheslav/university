@@ -12,7 +12,6 @@ import ua.develop.universitymanagement.repository.StudentRepo;
 import ua.develop.universitymanagement.service.StudentService;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -25,9 +24,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student saveStudent(StudentSave studentSave) {
-
         Student student = geStudent(studentSave);
-
         return studentRepo.save(student);
     }
 
@@ -58,6 +55,11 @@ public class StudentServiceImpl implements StudentService {
                 .stream()
                 .map(studentMapper::toStudentRead)
                 .collect(Collectors.toList());
+    }
+    //For testing online
+    @Override
+    public List<Student> getAll() {
+        return studentRepo.findAll();
     }
 
     private Student getStudent(UUID id) {

@@ -53,6 +53,12 @@ public class StudentControllerImpl implements StudentController {
     public List<StudentRead> getAllStudents() {
         return service.getAllStudents();
     }
+    @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
+    @Override
+    public List<Student> getAll() {
+        return service.getAll();
+    }
 
     @GetMapping("/hello")
     @ResponseStatus(HttpStatus.OK)

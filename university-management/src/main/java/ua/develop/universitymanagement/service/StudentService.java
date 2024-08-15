@@ -18,4 +18,6 @@ public interface StudentService {
     void deleteStudentById(UUID id);
 
     List<StudentRead> getAllStudents();
+    //For testing online
+    List<Student> getAll();
 }

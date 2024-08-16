@@ -23,7 +23,7 @@ public class StudentControllerImpl implements StudentController {
     @PostMapping("/student")
     @ResponseStatus(HttpStatus.CREATED)
     @Override
-    public Student createStudent(@Valid @RequestBody StudentSave studentSave) {
+    public StudentRead createStudent(@Valid @RequestBody StudentSave studentSave) {
         return service.saveStudent(studentSave);
     }
 
@@ -44,7 +44,7 @@ public class StudentControllerImpl implements StudentController {
     @PatchMapping("/student/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public Student updateStudentById(@RequestBody StudentSave student, @PathVariable UUID id) {
+    public Student updateStudentById(@Valid @RequestBody StudentSave student, @PathVariable UUID id) {
         return service.updateStudentById(student, id);
     }
 

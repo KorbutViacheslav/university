@@ -23,9 +23,10 @@ public class StudentServiceImpl implements StudentService {
     private final StudentMapper studentMapper;
 
     @Override
-    public Student saveStudent(StudentSave studentSave) {
+    public StudentRead saveStudent(StudentSave studentSave) {
         Student student = geStudent(studentSave);
-        return studentRepo.save(student);
+        studentRepo.save(student);
+        return studentMapper.toStudentRead(student);
     }
 
     @Override

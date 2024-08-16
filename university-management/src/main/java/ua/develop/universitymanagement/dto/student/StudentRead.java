@@ -2,6 +2,7 @@ package ua.develop.universitymanagement.dto.student;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
+import ua.develop.universitymanagement.dto.group.AcademicGroupReadForStudentRead;
 
 import java.time.LocalDate;
 
@@ -24,5 +25,5 @@ public record StudentRead(
         @Schema(description = "Student phone number", example = "+380630505055")
         String phoneNumber,
 
-        AcademicGroupRead group) {
+        AcademicGroupReadForStudentRead group) {
 }

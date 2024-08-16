@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface StudentService {
 
-    Student saveStudent(StudentSave student);
+    StudentRead saveStudent(StudentSave student);
 
     StudentRead getStudentById(UUID id);
 

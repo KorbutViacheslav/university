@@ -1,4 +1,11 @@
 package ua.develop.universitymanagement.service.impl;
 
-public class AcademicGroupServiceImpl {
+import ua.develop.universitymanagement.model.AcademicGroup;
+import ua.develop.universitymanagement.service.AcademicGroupService;
+
+public class AcademicGroupServiceImpl implements AcademicGroupService {
+    @Override
+    public AcademicGroup saveAcademicGroup(AcademicGroup academicGroup) {
+        return null;
+    }
 }

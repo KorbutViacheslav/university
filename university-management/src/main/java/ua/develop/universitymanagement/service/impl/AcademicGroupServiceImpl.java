@@ -8,4 +8,9 @@ public class AcademicGroupServiceImpl implements AcademicGroupService {
     public AcademicGroup saveAcademicGroup(AcademicGroup academicGroup) {
         return null;
     }
+
+    @Override
+    public AcademicGroup getAcademicGroupById(int id) {
+        return null;
+    }
 }

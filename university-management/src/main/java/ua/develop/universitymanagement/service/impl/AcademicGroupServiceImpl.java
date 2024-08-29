@@ -13,4 +13,9 @@ public class AcademicGroupServiceImpl implements AcademicGroupService {
     public AcademicGroup getAcademicGroupById(int id) {
         return null;
     }
+
+    @Override
+    public AcademicGroup deleteAcademicGroupById(int id) {
+        return null;
+    }
 }

@@ -5,9 +5,9 @@ import ua.develop.universitymanagement.model.AcademicGroup;
 public interface AcademicGroupService {
     AcademicGroup saveAcademicGroup(AcademicGroup academicGroup);
 
-    AcademicGroup getAcademicGroupById(int id);
+    AcademicGroup getAcademicGroupById(Integer id);
 
-    AcademicGroup updateAcademicGroupById(AcademicGroup academicGroup, int id);
+    AcademicGroup updateAcademicGroupById(AcademicGroup academicGroup, Integer id);
 
-    AcademicGroup deleteAcademicGroupById(int id);
+    AcademicGroup deleteAcademicGroupById(Integer id);
 }

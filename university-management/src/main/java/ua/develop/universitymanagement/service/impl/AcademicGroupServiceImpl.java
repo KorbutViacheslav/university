@@ -22,7 +22,7 @@ public class AcademicGroupServiceImpl implements AcademicGroupService {
     }
 
     @Override
-    public AcademicGroup deleteAcademicGroupById(Integer id) {
-        return null;
+    public void deleteAcademicGroupById(Integer id) {
+        academicGroupRepo.deleteById(id);
     }
 }

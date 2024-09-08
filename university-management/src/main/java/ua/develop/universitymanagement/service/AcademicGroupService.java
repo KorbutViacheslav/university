@@ -9,5 +9,5 @@ public interface AcademicGroupService {
 
     AcademicGroup updateAcademicGroupById(AcademicGroup academicGroup, Integer id);
 
-    AcademicGroup deleteAcademicGroupById(Integer id);
+    void deleteAcademicGroupById(Integer id);
 }

@@ -1,14 +1,20 @@
 package ua.develop.universitymanagement.service.impl;
 
+import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
+import ua.develop.universitymanagement.dto.group.AcademicGroupSave;
+import ua.develop.universitymanagement.mapper.AcademicGroupMapper;
 import ua.develop.universitymanagement.model.AcademicGroup;
 import ua.develop.universitymanagement.repository.AcademicGroupRepo;
 import ua.develop.universitymanagement.service.AcademicGroupService;
 
 public class AcademicGroupServiceImpl implements AcademicGroupService {
     AcademicGroupRepo academicGroupRepo;
+    AcademicGroupMapper academicGroupMapper;
     @Override
-    public AcademicGroup saveAcademicGroup(AcademicGroup academicGroup) {
-        return academicGroupRepo.save(academicGroup);
+    public AcademicGroupRead saveAcademicGroup(AcademicGroupSave academicGroupSave) {
+        AcademicGroup aG = academicGroupMapper.toAcademicGroup(academicGroupSave);
+        academicGroupRepo.save(aG);
+        return academicGroupMapper.toAcademicGroupRead(aG);
     }
 
     @Override

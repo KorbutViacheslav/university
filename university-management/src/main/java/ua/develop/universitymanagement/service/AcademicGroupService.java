@@ -1,9 +1,11 @@
 package ua.develop.universitymanagement.service;
 
+import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
+import ua.develop.universitymanagement.dto.group.AcademicGroupSave;
 import ua.develop.universitymanagement.model.AcademicGroup;
 
 public interface AcademicGroupService {
-    AcademicGroup saveAcademicGroup(AcademicGroup academicGroup);
+    AcademicGroupRead saveAcademicGroup(AcademicGroupSave academicGroup);
 
     AcademicGroup getAcademicGroupById(Integer id);
 

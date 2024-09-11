@@ -24,6 +24,11 @@ public class AcademicGroupServiceImpl implements AcademicGroupService {
 
     @Override
     public AcademicGroup updateAcademicGroupById(AcademicGroup academicGroup, Integer id) {
+        AcademicGroup aG = academicGroupRepo.findById(id).orElse(null);
+        AcademicGroup newAG = new AcademicGroup();
+        if(aG !=null){
+
+        }
         return null;
     }
 

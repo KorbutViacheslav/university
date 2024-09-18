@@ -9,5 +9,11 @@ import java.util.UUID;
 
 @Repository
 public interface StudentRepo extends JpaRepository<Student, UUID> {
+    /**
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @return
+     */
     Optional<Student> getStudentByFirstNameAndLastNameAndPhoneNumber(String firstName, String lastName, String phoneNumber);
 }

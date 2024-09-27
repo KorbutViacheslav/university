@@ -1,5 +1,6 @@
 package ua.develop.universitymanagement.service;
 
+import org.springframework.stereotype.Service;
 import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
 import ua.develop.universitymanagement.dto.group.AcademicGroupSave;
 import ua.develop.universitymanagement.model.AcademicGroup;

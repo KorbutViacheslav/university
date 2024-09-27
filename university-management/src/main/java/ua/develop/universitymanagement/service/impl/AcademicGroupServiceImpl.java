@@ -1,5 +1,7 @@
 package ua.develop.universitymanagement.service.impl;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
 import ua.develop.universitymanagement.dto.group.AcademicGroupSave;
 import ua.develop.universitymanagement.mapper.AcademicGroupMapper;
@@ -7,6 +9,8 @@ import ua.develop.universitymanagement.model.AcademicGroup;
 import ua.develop.universitymanagement.repository.AcademicGroupRepo;
 import ua.develop.universitymanagement.service.AcademicGroupService;
 
+@Service
+@AllArgsConstructor
 public class AcademicGroupServiceImpl implements AcademicGroupService {
     AcademicGroupRepo academicGroupRepo;
     AcademicGroupMapper academicGroupMapper;

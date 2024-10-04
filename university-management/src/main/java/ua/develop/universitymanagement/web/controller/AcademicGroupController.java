@@ -9,7 +9,7 @@ public interface AcademicGroupController {
 
     AcademicGroupRead getAcademicGroupById(Integer id);
 
-    AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave);
+    AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave, Integer id);
 
     void deleteAcademicGroupById(Integer id);
 }

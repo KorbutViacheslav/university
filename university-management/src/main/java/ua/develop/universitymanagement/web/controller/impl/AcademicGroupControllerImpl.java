@@ -27,13 +27,18 @@ public class AcademicGroupControllerImpl implements AcademicGroupController {
         return null;
     }
 
+    @PatchMapping("group/")
+    @ResponseStatus(HttpStatus.OK)
     @Override
-    public AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave) {
+    public AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave, Integer id) {
+        academicGroupService.updateAcademicGroupById(academicGroupSave,id);
         return null;
     }
 
+    @DeleteMapping("/group/{id}")
+    @ResponseStatus(HttpStatus.OK)
     @Override
-    public void deleteAcademicGroupById(Integer id) {
-
+    public void deleteAcademicGroupById(@PathVariable Integer id) {
+        academicGroupService.deleteAcademicGroupById(id);
     }
 }

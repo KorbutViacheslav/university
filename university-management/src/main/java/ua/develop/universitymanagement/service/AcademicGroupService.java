@@ -10,7 +10,7 @@ public interface AcademicGroupService {
 
     AcademicGroup getAcademicGroupById(Integer id);
 
-    AcademicGroup updateAcademicGroupById(AcademicGroup academicGroup, Integer id);
+    AcademicGroup updateAcademicGroupById(AcademicGroupSave academicGroupSave, Integer id);
 
     void deleteAcademicGroupById(Integer id);
 }

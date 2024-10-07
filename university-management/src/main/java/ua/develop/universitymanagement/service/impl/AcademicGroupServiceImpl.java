@@ -9,6 +9,8 @@ import ua.develop.universitymanagement.model.AcademicGroup;
 import ua.develop.universitymanagement.repository.AcademicGroupRepo;
 import ua.develop.universitymanagement.service.AcademicGroupService;
 
+import java.rmi.NotBoundException;
+
 @Service
 @AllArgsConstructor
 public class AcademicGroupServiceImpl implements AcademicGroupService {
@@ -22,18 +24,14 @@ public class AcademicGroupServiceImpl implements AcademicGroupService {
     }
 
     @Override
-    public AcademicGroup getAcademicGroupById(Integer id) {
-        return academicGroupRepo.findById(id).orElse(null);
+    public AcademicGroupRead getAcademicGroupById(Integer id) {
+        return academicGroupMapper.toAcademicGroupRead(academicGroupRepo.findById(id).orElse(null));
     }
 
     @Override
-    public AcademicGroup updateAcademicGroupById(AcademicGroupSave academicGroupSave, Integer id) {
+    public AcademicGroupRead updateAcademicGroupById(AcademicGroupSave academicGroupSave, Integer id) {
         AcademicGroup aG = academicGroupRepo.findById(id).orElse(null);
-        AcademicGroup newAG = new AcademicGroup();
-        if(aG !=null){
-
-        }
-        return null;
+        return academicGroupMapper.toAcademicGroupRead(aG);
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ua.develop.universitymanagement.dto.group.AcademicGroupRead;
 import ua.develop.universitymanagement.dto.group.AcademicGroupSave;
+import ua.develop.universitymanagement.model.AcademicGroup;
 import ua.develop.universitymanagement.service.AcademicGroupService;
 import ua.develop.universitymanagement.web.controller.AcademicGroupController;
 
@@ -24,15 +25,14 @@ public class AcademicGroupControllerImpl implements AcademicGroupController {
     @ResponseStatus(HttpStatus.OK)
     @Override
     public AcademicGroupRead getAcademicGroupById(@PathVariable Integer id) {
-        return null;
+        return academicGroupService.getAcademicGroupById(id);
     }
 
     @PatchMapping("group/")
     @ResponseStatus(HttpStatus.OK)
     @Override
     public AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave, Integer id) {
-        academicGroupService.updateAcademicGroupById(academicGroupSave,id);
-        return null;
+        return academicGroupService.updateAcademicGroupById(academicGroupSave,id);
     }
 
     @DeleteMapping("/group/{id}")

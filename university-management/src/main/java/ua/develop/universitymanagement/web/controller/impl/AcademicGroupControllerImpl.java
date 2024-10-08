@@ -18,9 +18,10 @@ public class AcademicGroupControllerImpl implements AcademicGroupController {
     @PostMapping("/group")
     @ResponseStatus(HttpStatus.CREATED)
     @Override
-    public AcademicGroupRead createAcademicGroup(AcademicGroupSave academicGroupSave) {
+    public AcademicGroupRead createAcademicGroup(@RequestBody AcademicGroupSave academicGroupSave) {
         return academicGroupService.saveAcademicGroup(academicGroupSave);
     }
+
     @GetMapping("/group/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
@@ -28,11 +29,11 @@ public class AcademicGroupControllerImpl implements AcademicGroupController {
         return academicGroupService.getAcademicGroupById(id);
     }
 
-    @PatchMapping("group/")
+    @PatchMapping("group/update/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public AcademicGroupRead updateAcademicGroup(AcademicGroupSave academicGroupSave, Integer id) {
-        return academicGroupService.updateAcademicGroupById(academicGroupSave,id);
+    public AcademicGroupRead updateAcademicGroup(@RequestBody AcademicGroupSave academicGroupSave,@PathVariable Integer id) {
+        return academicGroupService.updateAcademicGroupById(academicGroupSave, id);
     }
 
     @DeleteMapping("/group/{id}")
